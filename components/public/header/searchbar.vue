@@ -6,8 +6,16 @@
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
-          <el-input v-model="search" placeholder="搜索商家和地点" @focus="focus" @blur="blur" @input="input"/>
-          <button class="el-button el-button--primary"><i class="el-icon-search"></i></button>
+          <el-input
+            v-model="search"
+            placeholder="搜索商家和地点"
+            @focus="focus"
+            @blur="blur"
+            @input="input"
+          />
+          <button class="el-button el-button--primary">
+            <i class="el-icon-search"></i>
+          </button>
           <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
             <dd v-for="(item, index) in hotPlace" :key="index">{{ item }}</dd>
@@ -43,9 +51,18 @@
       </el-col>
       <el-col :span="6" class="right">
         <ul class="security">
-          <li><i class="refund" /><p class="txt">随时退</p></li>
-          <li><i class="single" /><p class="txt">不满意免单</p></li>
-          <li><i class="overdue" /><p class="txt">过期退</p></li>
+          <li>
+            <i class="refund" />
+            <p class="txt">随时退</p>
+          </li>
+          <li>
+            <i class="single" />
+            <p class="txt">不满意免单</p>
+          </li>
+          <li>
+            <i class="overdue" />
+            <p class="txt">过期退</p>
+          </li>
         </ul>
       </el-col>
     </el-row>
@@ -56,33 +73,33 @@
 export default {
   data() {
     return {
-      search: '',
+      search: "",
       isFouce: false,
-      hotPlace: ['火锅', '火锅', '火锅'],
-      searchList: ['故宫', '故宫', '故宫']
-    }
+      hotPlace: ["火锅", "火锅", "火锅"],
+      searchList: ["故宫", "故宫", "故宫"]
+    };
   },
   computed: {
     isHotPlace: function() {
-      return this.isFouce && !this.search
+      return this.isFouce && !this.search;
     },
     isSearchList: function() {
-      return this.isFouce && this.search
+      return this.isFouce && this.search;
     }
   },
   methods: {
     focus() {
-      this.isFouce = true
+      this.isFouce = true;
     },
     blur() {
       setTimeout(() => {
-        this.isFouce = false
-      },200)
+        this.isFouce = false;
+      }, 200);
     },
     input() {
-      console.log('input')
+      console.log("input");
     }
-  },
+  }
 };
 </script>
 
